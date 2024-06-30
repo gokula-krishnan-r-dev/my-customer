@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex items-center min-h-screen justify-center">
-          <div className="w-[400px] relative">{children}</div>
+          <div className=" w-full lg:w-[400px] relative">{children}</div>
         </div>
       </body>
     </html>

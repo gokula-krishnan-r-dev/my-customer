@@ -9,7 +9,64 @@ import {
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-
+import { ScrollArea } from "@/components/ui/scroll-area";
+const data = [
+  {
+    name: "Adithya",
+    phone: "9823234343",
+    location: "Chennai",
+    time: "2 hours ago",
+  },
+  {
+    name: "Rahul",
+    phone: "9845123456",
+    location: "Bangalore",
+    time: "3 hours ago",
+  },
+  {
+    name: "Priya",
+    phone: "9876543210",
+    location: "Mumbai",
+    time: "1 hour ago",
+  },
+  {
+    name: "Sneha",
+    phone: "9812345678",
+    location: "Delhi",
+    time: "4 hours ago",
+  },
+  {
+    name: "Arjun",
+    phone: "9832123456",
+    location: "Hyderabad",
+    time: "30 minutes ago",
+  },
+  {
+    name: "Vikram",
+    phone: "9823456789",
+    location: "Kolkata",
+    time: "5 hours ago",
+  },
+  { name: "Anita", phone: "9843567890", location: "Pune", time: "6 hours ago" },
+  {
+    name: "Karan",
+    phone: "9812783456",
+    location: "Jaipur",
+    time: "7 hours ago",
+  },
+  {
+    name: "Meera",
+    phone: "9832145678",
+    location: "Ahmedabad",
+    time: "8 hours ago",
+  },
+  {
+    name: "Deepak",
+    phone: "9856734210",
+    location: "Chandigarh",
+    time: "9 hours ago",
+  },
+];
 export default function Component() {
   return (
     <div className="flex flex-col w-full h-screen min-h-screen  bg-gray-100">
@@ -56,27 +113,41 @@ export default function Component() {
           </Select>
         </div>
         <div className="space-y-4">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <Card key={index} className="flex items-center p-4 space-x-4">
-              <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <div className="font-bold">Adithya</div>
-                <div className="text-sm text-muted-foreground">9823234343</div>
-                <div className="text-sm text-muted-foreground">Chennai</div>
-              </div>
-              <div className="">
-                <div className="flex items-center space-x-2">
-                  <MessageCircleIcon className="w-6 h-6 text-muted-foreground" />
-                  <PhoneCallIcon className="w-6 h-6 text-muted-foreground" />
-                  <PhoneIcon className="w-6 h-6 text-muted-foreground" />
+          <ScrollArea className="h-[69vh]">
+            {data.map((item, index) => (
+              <Card
+                key={index}
+                className="flex mt-4 items-center p-4 space-x-4"
+              >
+                <Avatar>
+                  <AvatarImage src="/placeholder-user.jpg" />
+                  <AvatarFallback>
+                    {item.name[0]}
+                    {item.name[1]}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="flex-1">
+                  <div className="font-bold">{item.name}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {item.phone}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {item.location}
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground">2 hours ago</div>
-              </div>
-            </Card>
-          ))}
+                <div className="">
+                  <div className="flex items-center space-x-2">
+                    <MessageCircleIcon className="w-6 h-6 text-muted-foreground" />
+                    <PhoneCallIcon className="w-6 h-6 text-muted-foreground" />
+                    <PhoneIcon className="w-6 h-6 text-muted-foreground" />
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {item.time}
+                  </div>
+                </div>
+              </Card>
+            ))}{" "}
+          </ScrollArea>
         </div>
       </main>
       <footer className="flex items-center justify-around h-16 bg-white border-t">
